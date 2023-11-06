@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <!-- Enhanced Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    .bg-gradient-purple-blue {
+      background: linear-gradient(90deg, #8a4fff, #0073e6);
+    }
+
+    /* Form Container Styles */
+    .form-container {
+      max-width: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Element Styles */
+    .form-input {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      width: 100%;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+      border-color: #8a4fff;
+      outline: none;
+    }
+
+    .btn-signup {
+      background-color: #8a4fff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-signup:hover {
+      background-color: #0073e6;
+    }
+
+    .already-account {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .already-account a {
+      color: #8a4fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .already-account a:hover {
+      color: #0073e6;
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gradient-purple-blue min-h-screen flex items-center justify-center">
+
+  <div class="form-container p-6">
+         
+    <form id="registration-form">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-600">Name</label>
+        <input type="text" id="name" name="name" class="form-input" required>
+      </div>
+      <div class="mb-4">
+        <label for ="age" class="block text-gray-600">Age</label>
+        <input type="number" id="age" name="age" class="form-input" required>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-600">Email</label>
+        <input type="email" id="email" name="email" class="form-input" required>
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-gray-600">Password</label>
+        <input type="password" id="password" name="password" class="form-input" required>
+      </div>
+      <button type="submit" value="submit" class="btn-signup" id="Signup_btn">
+        Sign Up
+      </button>
+    </form>
+    <p class="text-gray-600 text-center mt-4 already-account">Already have an account? <a href="login.html" class="hover:text-purple-600">Log in</a></p>
+  </div>
+  
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Get user input
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      // Store user input in a dictionary
+      const userData = {
+        name: name,
+        age: age,
+        email: email,
+        password: password
+      };
+  
+      // Store user data in localStorage
+      localStorage.setItem('userData', JSON.stringify(userData));
+  
+      // Redirect to the login page
+      window.location.href = 'login.html';
+    });
+  </script>
+  
+
+</body>
+        
+</html>
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    
+
+</head>
+<body>
+  
+  <div class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-10 rounded-lg shadow-lg w-96 card-wrapper">
+        <h1 class="text-2xl font-semibold mb-4 ">Login</h1>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label for="email" class="block text-gray-600 font-medium">Email:</label>
+                <input type="email" id="email" name="email" required class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-600 font-medium">Password:</label>
+                <input type="password" id="password" name="password" required class="w-full border border-gray-300 p-2 rounded">
+            </div>
+            <div>
+
+            <input type= "submit" value="Login" class="bg-blue-500 text-white font-medium px-4 py-2 rounded hover:bg-blue-600 transition-colors hover:cursor-pointer">
+            </div>
+        </form>
+    </div>
+  </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+          event.preventDefault();
+      
+          // Get email and password from the form
+          const loginEmail = document.getElementById('email').value;
+          const loginPassword = document.getElementById('password').value;
+      
+          // Retrieve user data from localStorage
+          const userData = JSON.parse(localStorage.getItem('userData'));
+      
+          // Checking if the entered email and password match user data
+          if (userData && userData.email === loginEmail && userData.password === loginPassword) {
+            // Login successful, redirect to dashboard.html
+            window.location.href = 'dashboard.html';
+          } else {
+            // Login failed, showing an error message
+            alert('Login failed. Invalid credentials.');
+          }
+        });
+      </script>
+    
+</body>
+</html>
+
